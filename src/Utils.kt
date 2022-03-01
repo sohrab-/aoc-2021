@@ -11,3 +11,8 @@ fun readInput(name: String) = File("src", "$name.txt").readLines()
  * Converts string to md5 hash.
  */
 fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray())).toString(16)
+
+data class Coordinate(val x: Int, val y: Int)
+
+infix operator fun Coordinate.plus(other: Coordinate) = Coordinate(this.x + other.x, this.y + other.y)
+infix operator fun Coordinate.minus(other: Coordinate) = Coordinate(this.x - other.x, this.y - other.y)
